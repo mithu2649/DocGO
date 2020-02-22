@@ -6,11 +6,10 @@
 
         if(DB::query('SELECT username FROM users WHERE username=:username', array(':username'=>$username))){
           if(password_verify($password, DB::query('SELECT password FROM users WHERE username=:username', array(':username'=>$username))[0]['password'])){
-              echo 'logged_in';
-              
                 $cstrong = True;
                 $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
-                echo $token;
+                echo 'logged_in: '.$token;
+                header('location:index.php');
                 
                 $user_id = DB::query('SELECT id from users WHERE username =:username', array(':username'=>$username))[0]['id'];
                 DB::query('INSERT INTO login_tokens VALUES(\'\',:token, :user_id)', array(':token'=>sha1($token), ':user_id'=>$user_id));

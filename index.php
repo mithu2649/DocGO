@@ -22,7 +22,7 @@
 </form>
 
 <form method="post" action="search.php">
-    <input type="text" name="q" id="search_field">
+    <input type="text" name="q" id="search_field" placeholder="Search for documents">
     <input type="submit" value="search">
 </form>
 
