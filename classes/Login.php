@@ -17,7 +17,7 @@
                         setcookie("CLID_", '1', time() + 60 * 60 * 24 * 3, '/', NULL, NULL, TRUE);
     
                         return $user_id;
-    
+                        
                     }
                 }
     
