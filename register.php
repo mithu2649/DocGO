@@ -1,5 +1,6 @@
 <?php
     include('classes/DB.php');
+    include('inc/header.php');
     if(isset($_POST['create_account'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -34,11 +35,7 @@
         }
     }
 
+    include('static/registrationForm.html');
+    include('inc/footer.php');
 ?>
 
-<form action="create_account.php" method="post">
-    <input type="text" name="username" id="username" placeholder="Username">
-    <input type="password" name="password" id="password" placeholder="Password">
-    <input type="email" name="email" id="email" placeholder="Email ID">
-    <input type="submit" name="create_account" id="registerUser" value="Submit">
-</form>
