@@ -2,7 +2,7 @@
     include('./classes/DB.php');
     include('./classes/Login.php');
     if (!Login::isLoggedIn()) {
-            die("Not logged in.");
+        header('location: index');
     }
     if (isset($_COOKIE['CLID'])) {
         DB::query('DELETE FROM login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['CLID'])));
@@ -11,4 +11,5 @@
     setcookie('CLID_', '1', time()-3600);
 
     echo 'Logged_out';
+    header('location: index');
    
