@@ -1,15 +1,12 @@
 <?php 
     include('classes/DB.php');
     include('classes/Login.php');
-
-    $dbposts = "";
+    include('inc/header.php');
+    $dbposts = ""; $posts = [];
     $showTimeline = False;
     if(Login::isLoggedIn()){
         $user_id = Login::isLoggedIn();
         $username = DB::query('SELECT username from users WHERE id=:user_id', array(':user_id'=>$user_id))[0]['username'];
-
-        echo 'logged in as => '.$username.'<br><br>';
-
         if(isset($_POST['q'])){
             
            $keywords = explode(' ', $_POST['q']);
@@ -17,7 +14,6 @@
            $query = 'SELECT username, url, title, description, posted_at 
                 FROM documents, users 
                 WHERE title LIKE "%'.$keywords[0].'%"
-                OR username LIKE "%'.$keywords[0].'%"
                 ';
 
                 for($i = 1; $i < count($keywords); $i++) {
@@ -40,14 +36,18 @@
                     }else if(pathinfo($p['url'], PATHINFO_EXTENSION) == "docx"){
                         $img = "resources/img/docs.png";
                     }
-                    
+
                     $dbposts .= '
                     <div class="post">
-                        <img src="'.$img.'" width="120px"/>
-                        <h2>'.$p['title'].'</h2>
-                        <p>'.$p['description'].'<p>
-                        <p>'.$p['username'].': '.$p['posted_at'].'<p>
-                        <a href="'.$p['url'].'">Download</a>
+                        <div class="postImg filetype">
+                            <img src="'.$img.'"/>
+                        </div>
+                        <div class="postContent">
+                            <h2 class="postTitle">'.$p['title'].'</h2><br>
+                            <p class="postDesc">'.$p['description'].'</p><br>
+                            <p class="postAuthor">'.$p['username'].'<span class="postTime">'.$p['posted_at'].'</span></p>
+                            <a class="postLink" href="'.$p['url'].'">Download</a>
+                        </div>
                     </div>';
                 }
             
@@ -58,13 +58,8 @@
 ?>
 
 <div class="posts">
-    <?php echo $dbposts; ?>
+    <h1><?php if(count($posts) == 0){echo 'You came in here the wrong way!<br>Tell me what to search for?<br><br>Click on the search button';}else{echo count($posts).' result(s) found';}?></h1>
+    <?php echo $dbposts;?>
 </div>
 
-<style>
-    .post{
-        background-color:#f2f2f2;
-        padding:10px;
-        margin:5px;
-    }
-</style>
+<?php include('inc/footer.php');?>

@@ -24,57 +24,9 @@
 
 }
 
-#actionButton{
-    border:none;
-    outline:none;
-    cursor: pointer;
-    height:60px;
-    width:60px;
-    background-color:#369666;
-    color:#fff;
-    position:fixed;
-    bottom:40px;
-    right:20px;
-    line-height:60px;
-    font-size: 1.3rem;
-    border-radius:50%;
-    text-align:center;
-
-    /* this is for the android blue highliting issue  */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
-#actionButton:hover{
-    background-color: #266646;
-}
-
-
-
-#overlay-dark{
-    width:100%;
-    height:100vh;
-    background-color:rgba(0, 0, 0, 0.904);
-    position:fixed;
-    top:0;
-    z-index:4;
-    display: none; 
-
-}
-#overlay-dark form {
-    max-width:60%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:80px;
-
-}
-#overlay-dark form input[type="text"]{
+.searchform input[type="text"]{
     height:40px;
-    width:100%;
+    width:600px;
     border:none;
     background-color: #3b4148;
     padding:30px;
@@ -84,54 +36,26 @@
     border-radius: 6px;
     outline: none;
 }
-#overlay-dark form input[type="submit"]{
-    height:40px;
-    width:160px;
+
+.searchform input[type="submit"]{
+    margin-left:20px;
+    height:60px;
+    width:120px;
     border:none;
     background-color: #369666;
-    padding:30px;
+    padding:20px;
     font-size: large;
     color:#fff;
     border:none;
     border-radius: 6px;
     outline: none;
-    line-height: 0px;
-    float:right;
-    cursor: pointer;
 }
-#overlay-dark form input[type="submit"]:hover{
-    background-color: #266646;
-}
-#overlay-dark form #closeSearch{
-    height:60px;
-    width:60px;
-    background-color:rgb(245, 148, 148);
-    position: absolute;
-    right:450px;
-    border-radius:50%;
-    text-align: center;
-    line-height: 60px;
-    font-size: 3.3rem;
-    transform: rotate(45deg);
-    color:#000;
-    cursor: pointer;
-
+.searchform{
+    margin-bottom:120px;
 }
 
-@media only screen and (max-width: 600px) {
-    .jumboButton{
-        width:85%;
-    }
-    .jumboText{
-        text-align:left !important;
-        padding:40px;
-        font-size:1rem;
-        background-color: transparent;
-    }
-    #overlay-dark form {
-        max-width:90%;
-    }
-    #overlay-dark form #closeSearch{
-        right:200px;
+@media only screen and (max-width: 900px) {
+    .searchform{
+        display:none;
     }
 }

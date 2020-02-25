@@ -1,0 +1,78 @@
+.posts{
+    max-width: 600px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.post {
+    position:relative;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border-radius:5px;
+    vertical-align:middle;
+    background-color:#3b4148;
+    padding:20px;
+    max-width:600px;
+    margin-top:20px;
+ 
+
+}
+
+.post > div {
+    width:100%;
+}
+
+.postImg:before {      /* create a full-height inline block pseudo-element */
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle; /* vertical alignment of the inline element */
+}
+
+.post .postImg {
+    font-size:0/0 a;
+    grid-row: 1; 
+    width:100px;
+    text-align: center;
+}
+
+.post .postImg img{
+    display: inline-block;
+    vertical-align: middle; 
+    width:100px;
+    font-size:15px;
+}
+.post .postDesc{
+    color:rgb(194, 194, 194);
+}
+
+.post .postLink{
+    height:40px;
+    width:150px;
+    background-color: #369666;
+    color:#fff;
+    border-radius:5px;
+    text-decoration:none;
+    text-align:center;
+    padding:10px;
+    display:block;
+    line-height:20px;
+    margin-top:20px;
+}
+
+.postTitle{
+    color:#fff;
+}
+
+@media only screen and (max-width: 600px) {
+    .post .postImg img{
+        width:40px;
+    }
+    .post .postImg{
+        width:40px;
+        margin-top:-20px;
+        margin-bottom:20px;
+    }
+    .post{
+        display:block;
+        border-left:5px solid #369666;
+    }
+}

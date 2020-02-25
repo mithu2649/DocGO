@@ -18,15 +18,13 @@
         header('location:login');
     }
 ?>
-<div id="actionButton"><i class="fa fa-search" aria-hidden="true"></i></div>
-<div id="overlay-dark">
-    <form method="post" action="search.php">
-        <input type="text" name="q" id="search_field" autocomplete="off" placeholder="Search for documents" required><br><br>
-        <input type="submit" value="Search">
-        <div id="closeSearch">&plus;</div>
-    </form>
-</div>
+
 <div class="jumboText">
+
+    <form class="searchform" method="post" action="search.php">
+        <input type="text" name="q" id="search_field" autocomplete="off" placeholder="Search for documents" required><input type="submit" value="Search">
+    </form>
+
     <h1>Hello, <?php echo $username; ?></h1>
     <h2>Always feel free to contribute to the DocGo community</h2>
     <button class="jumboButton">Upload Now</button>
@@ -40,4 +38,4 @@
 </form>
 -->
 
-<script src="resources/js/index.js"></script>
+<?php include('inc/footer.php');?>

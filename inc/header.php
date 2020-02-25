@@ -12,6 +12,7 @@
     <link href="resources/icons/document.png" rel="icon"  type="image/x-icon" />
     <?php if($currentPage  == 'index'){echo '<link rel="stylesheet" href="resources/css/index.css">';} ?>
     <?php if($currentPage == 'register' || $currentPage == 'login'){echo '<link rel="stylesheet" href="resources/css/login.css">';} ?>
+    <?php if($currentPage == 'feed' || $currentPage == 'search'){echo '<link rel="stylesheet" href="resources/css/posts.css">';} ?>
 </head>
 
 <body>
@@ -22,9 +23,10 @@
     <span id="logo_text">Doc<span id="logo_text_accent">Go</span></span></span></a>
    
         <ul>
-            <li><a class="<?php if($currentPage == 'index'){echo 'active';}else{echo 'unactive';}?>" href="#">Home</a></li>
+            <li><a class="<?php if($currentPage == 'index'){echo 'active';}else{echo 'unactive';}?>" href="index">Home</a></li>
+            <li><a class="<?php if($currentPage == 'feed'){echo 'active';}else{echo 'unactive';}?>" href="feed">My feeds</a></li>
+            <li><a class="<?php if($currentPage == 'profile'){echo 'active';}else{echo 'unactive';}?>" href="profile">Profile</a></li>
             <li><a class="<?php if($currentPage == 'about'){echo 'active';}else{echo 'unactive';}?>" href="#">About</a></li>
-            <li><a class="<?php if($currentPage == 'contact'){echo 'active';}else{echo 'unactive';}?>" href="#">Contact us</a></li>
         </ul>
             <?php 
                 if(basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'index'){
@@ -37,3 +39,13 @@
     </nav>
 
 </header>
+<div id="actionButton"><i class="fa fa-search" aria-hidden="true"></i></div>
+<div id="overlay-dark">
+    <form method="post" action="search.php">
+        <input type="text" name="q" id="search_field" autocomplete="off" placeholder="Search for documents" required><br><br>
+        <input type="submit" value="Search">
+        <div id="closeSearch">&plus;</div>
+    </form>
+</div>
+
+<div id="main">

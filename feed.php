@@ -1,13 +1,12 @@
 <?php 
     include('classes/DB.php');
     include('classes/Login.php');
+    include('inc/header.php');
     $dbposts = "";
     $showTimeline = False;
     if(Login::isLoggedIn()){
         $user_id = Login::isLoggedIn();
         $username = DB::query('SELECT username from users WHERE id=:user_id', array(':user_id'=>$user_id))[0]['username'];
-
-        echo 'logged in as => '.$username;
 
         $posts = DB::query(
             'SELECT username, url, title, description, posted_at 
@@ -18,12 +17,26 @@
         );
 
         foreach($posts as $p){
+
+            if(pathinfo($p['url'], PATHINFO_EXTENSION) == "pdf"){
+                $img = "resources/img/pdf.png";
+            }else if(pathinfo($p['url'], PATHINFO_EXTENSION) == "epub"){
+                $img = "resources/img/epub.png";
+            }else if(pathinfo($p['url'], PATHINFO_EXTENSION) == "docx"){
+                $img = "resources/img/docs.png";
+            }
+
             $dbposts .= '
             <div class="post">
-                <h2>'.$p['title'].'</h2>
-                <p>'.$p['description'].'<p>
-                <p>'.$p['username'].': '.$p['posted_at'].'<p>
-                <a href="'.$p['url'].'">Download</a>
+                <div class="postImg filetype">
+                    <img src="'.$img.'"/>
+                </div>
+                <div class="postContent">
+                    <h2 class="postTitle">'.$p['title'].'</h2><br>
+                    <p class="postDesc">'.$p['description'].'</p><br>
+                    <p class="postAuthor">'.$p['username'].'<span class="postTime">'.$p['posted_at'].'</span></p>
+                    <a class="postLink" href="'.$p['url'].'">Download</a>
+                </div>
             </div>';
         }
     }else{
@@ -32,13 +45,8 @@
 ?>
 
 <div class="posts">
+    <h1>Recently Added</h1>
     <?php echo $dbposts; ?>
 </div>
 
-<style>
-    .post{
-        background-color:#e2e2e2;
-        padding:10px;
-        margin:5px;
-    }
-</style>
+<?php include('inc/footer.php'); ?>
