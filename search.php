@@ -11,9 +11,12 @@
             
            $keywords = explode(' ', $_POST['q']);
 
-           $query = 'SELECT username, url, title, description, posted_at 
-                FROM documents, users 
-                WHERE title LIKE "%'.$keywords[0].'%"
+           $query = 'SELECT DISTINCT 
+           documents.id, documents.title, 
+           documents.description, documents.posted_at, 
+           documents.url, users.username 
+           FROM users, documents
+           WHERE documents.title LIKE "%'.$keywords[0].'%" OR documents.description LIKE "%'.$keywords[0].'%"
                 ';
 
                 for($i = 1; $i < count($keywords); $i++) {
@@ -22,11 +25,13 @@
                         $query .= " OR description like '%" . $keywords[$i] . "%'";
                     }
                 }
-
-            $posts = DB::query($query);
+            $finalQuery = $query. ' GROUP BY documents.id';
+            $posts = DB::query($finalQuery);
             if(empty(array_filter($posts))){
                 die('no_documents_found');
             }
+            
+      
                 
                 foreach($posts as $p){
                     if(pathinfo($p['url'], PATHINFO_EXTENSION) == "pdf"){
@@ -34,7 +39,11 @@
                     }else if(pathinfo($p['url'], PATHINFO_EXTENSION) == "epub"){
                         $img = "resources/img/epub.png";
                     }else if(pathinfo($p['url'], PATHINFO_EXTENSION) == "docx"){
-                        $img = "resources/img/docs.png";
+                        $img = "resources/img/docx.png";
+                    }else if(pathinfo($p['url'], PATHINFO_EXTENSION) == "text"){
+                        $img = "resources/img/txt.png";
+                    }else{
+                        $img = "resources/img/unknown.png";
                     }
 
                     $dbposts .= '
@@ -44,7 +53,7 @@
                         </div>
                         <div class="postContent">
                             <h2 class="postTitle">'.$p['title'].'</h2><br>
-                            <p class="postDesc">'.$p['description'].'</p><br>
+                            <p class="postDesc">'.substr($p['description'], 0, 250).'</p><br>
                             <p class="postAuthor">'.$p['username'].'<span class="postTime">'.$p['posted_at'].'</span></p>
                             <a class="postLink" href="'.$p['url'].'">Download</a>
                         </div>
