@@ -12,24 +12,32 @@
            $keywords = explode(' ', $_POST['q']);
 
            $query = 'SELECT DISTINCT 
-                    documents.id, documents.title, 
-                    documents.description, documents.posted_at, 
-                    documents.url, users.username 
-                    FROM users, documents
-                    WHERE documents.title LIKE "%'.$keywords[0].'%" 
-                    AND users.id = documents.uploaded_by
-                    GROUP BY documents.title';
+           documents.id, documents.title, 
+           documents.description, documents.posted_at, 
+           documents.url, users.username 
+           FROM users, documents
+           WHERE documents.title LIKE "%'.$keywords[0].'%" ';
 
-            // OR documents.description like ***
+                for($i = 1; $i < count($keywords); $i++) {
+                    if(!empty($keywords[$i])) {
+                        $query .= " OR documents.title like '%" . $keywords[$i] . "%'";
+                        $query .= " OR documents.description like '%" . $keywords[$i] . "%'";
+                        $query .= " OR users.username like '%" . $keywords[$i] . "%'";
 
-            // adding OR keyword to the above $query results in duplicate rows and sometimes with incorrect username.. 
-            // please fix this bug. (i am having trouble working with joins :D )
-            // for now, searches are made using titles only.
-                    
-            $posts = DB::query($query);
+                       //there's a bug in here. the username that is returned from the database is not correct.
+                       //Having a hard time figuring it out.
+                       //Somebody please fix this.
+                       //HINT: removing all the OR statements from the query fixes the issue
+                       //but the search is less efficient that way.
+                    }
+                }
+
+            $finalQuery = $query. ' AND users.id = documents.uploaded_by GROUP BY documents.title';
+            $posts = DB::query($finalQuery);
             if(empty(array_filter($posts))){
                 die('no_documents_found');
-            }   
+            }
+
                 foreach($posts as $p){
                     if(pathinfo($p['url'], PATHINFO_EXTENSION) == "pdf"){
                         $img = "resources/img/pdf.png";
