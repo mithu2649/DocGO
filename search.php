@@ -12,27 +12,24 @@
            $keywords = explode(' ', $_POST['q']);
 
            $query = 'SELECT DISTINCT 
-           documents.id, documents.title, 
-           documents.description, documents.posted_at, 
-           documents.url, users.username 
-           FROM users, documents
-           WHERE documents.title LIKE "%'.$keywords[0].'%" OR documents.description LIKE "%'.$keywords[0].'%"
-                ';
+                    documents.id, documents.title, 
+                    documents.description, documents.posted_at, 
+                    documents.url, users.username 
+                    FROM users, documents
+                    WHERE documents.title LIKE "%'.$keywords[0].'%" 
+                    AND users.id = documents.uploaded_by
+                    GROUP BY documents.title';
 
-                for($i = 1; $i < count($keywords); $i++) {
-                    if(!empty($keywords[$i])) {
-                        $query .= " OR title like '%" . $keywords[$i] . "%'";
-                        $query .= " OR description like '%" . $keywords[$i] . "%'";
-                    }
-                }
-            $finalQuery = $query. ' GROUP BY documents.id';
-            $posts = DB::query($finalQuery);
+            // OR documents.description like ***
+
+            // adding OR keyword to the above $query results in duplicate rows and sometimes with incorrect username.. 
+            // please fix this bug. (i am having trouble working with joins :D )
+            // for now, searches are made using titles only.
+                    
+            $posts = DB::query($query);
             if(empty(array_filter($posts))){
                 die('no_documents_found');
-            }
-            
-      
-                
+            }   
                 foreach($posts as $p){
                     if(pathinfo($p['url'], PATHINFO_EXTENSION) == "pdf"){
                         $img = "resources/img/pdf.png";
@@ -54,7 +51,7 @@
                         <div class="postContent">
                             <h2 class="postTitle">'.$p['title'].'</h2><br>
                             <p class="postDesc">'.substr($p['description'], 0, 250).'</p><br>
-                            <p class="postAuthor">'.$p['username'].'<span class="postTime">'.$p['posted_at'].'</span></p>
+                            <p class="postAuthor">'.$p['username'].': <span class="postTime">'.$p['posted_at'].'</span></p>
                             <a class="postLink" href="'.$p['url'].'">Download</a>
                         </div>
                     </div>';
