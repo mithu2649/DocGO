@@ -225,7 +225,7 @@ nav #logo_text_accent{
 #overlay-dark form input[type="submit"]:hover{
     background-color: #266646;
 }
-#overlay-dark form #closeSearch{
+#overlay-dark form #closeSearch, .closeForm{
     height:60px;
     width:60px;
     background-color:rgb(245, 148, 148);
@@ -235,7 +235,6 @@ nav #logo_text_accent{
     text-align: center;
     line-height: 60px;
     font-size: 3.3rem;
-    transform: rotate(45deg);
     color:#000;
     cursor: pointer;
 
@@ -254,7 +253,7 @@ nav #logo_text_accent{
     #overlay-dark form {
         max-width:90%;
     }
-    #overlay-dark form #closeSearch{
+    #overlay-dark form #closeSearch, .closeForm{
         right:200px;
     }
 }

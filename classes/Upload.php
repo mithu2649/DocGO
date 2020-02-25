@@ -8,18 +8,14 @@
     
                 $target_dir = "uploads/";
                 $target_file = $target_dir . $newfilename;
-            
-    
+
                 $uploadOk = 1;
                 $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     
-            
-            
                 if ($file["size"] > 50000000) {
                     echo "Sorry, your file is too large.";
                     $uploadOk = 0;
                 }
-    
     
                 if($FileType != "pdf" && $FileType != "txt" && $FileType != "odt" && $FileType != "doc" && $FileType != "docx" && $FileType != "epub" && $FileType != "mobi" && $FileType != "rtf") {
                     echo "Sorry, only pdf, epub, txt, odt, doc, docx, mobi and rtf allowed.";

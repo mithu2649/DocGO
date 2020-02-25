@@ -23,7 +23,12 @@
             }else if(pathinfo($p['url'], PATHINFO_EXTENSION) == "epub"){
                 $img = "resources/img/epub.png";
             }else if(pathinfo($p['url'], PATHINFO_EXTENSION) == "docx"){
-                $img = "resources/img/docs.png";
+                $img = "resources/img/docx.png";
+            }
+            else if(pathinfo($p['url'], PATHINFO_EXTENSION) == "txt"){
+                $img = "resources/img/txt.png";
+            }else{
+                $img = "resources/img/unknown.png";
             }
 
             $dbposts .= '
@@ -33,8 +38,8 @@
                 </div>
                 <div class="postContent">
                     <h2 class="postTitle">'.$p['title'].'</h2><br>
-                    <p class="postDesc">'.$p['description'].'</p><br>
-                    <p class="postAuthor">'.$p['username'].'<span class="postTime">'.$p['posted_at'].'</span></p>
+                    <p class="postDesc">'.substr($p['description'], 0, 250).'...</p><br>
+                    <p class="postAuthor">'.$p['username'].'<span class="postTime"><br>uploaded on: '.$p['posted_at'].'</span></p>
                     <a class="postLink" href="'.$p['url'].'">Download</a>
                 </div>
             </div>';

@@ -49,6 +49,7 @@
     border:none;
     border-radius: 6px;
     outline: none;
+    cursor:pointer;
 }
 .searchform{
     margin-bottom:120px;
@@ -58,4 +59,87 @@
     .searchform{
         display:none;
     }
+}
+@media only screen and (max-width: 600px) {
+    .jumboButton{
+        width:90%;
+    }
+}
+
+#uploadFormContainer{
+    margin-left:-10px;
+    width:100%;
+    height:100vh;
+    background-color:rgba(0, 0, 0, 0.904);
+    position:fixed;
+    top:0;
+    z-index:999;
+    display: none; 
+
+}
+
+#uploadFormContainer form {
+    max-width:60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:60px;
+    z-index:999;
+    position: relative;
+}
+#uploadFormContainer form input, #uploadFormContainer form textarea{
+    display:block;
+    margin-top: 14px;
+}
+#uploadFormContainer form input[type="text"]{
+    height:40px;
+    width:100%;
+    border:none;
+    background-color: #3b4148;
+    padding:30px;
+    font-size: large;
+    color:#fff;
+    border:none;
+    border-radius: 6px;
+    outline: none;
+}
+#uploadFormContainer form input[type="submit"]{
+    height:40px;
+    width:140px;
+    border:none;
+    background-color: #369666;
+    padding:30px;
+    font-size: large;
+    color:#fff;
+    border:none;
+    border-radius: 6px;
+    outline: none;
+    line-height: 0px;
+    float:right;
+    cursor: pointer;
+}
+#uploadFormContainer form input[type="submit"]:hover{
+    background-color: #266646;
+}
+#uploadFormContainer form textarea{
+    height:170px;
+    width:100%;
+    border:none;
+    background-color: #3b4148;
+    padding:30px;
+    font-size: large;
+    color:#fff;
+    border:none;
+    border-radius: 6px;
+    outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+    #uploadFormContainer form {
+        max-width:90%;
+    }
+}
+
+#uploadFormContainer .closeForm{
+    right:0px;
+    top:12px;
 }
