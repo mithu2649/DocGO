@@ -1,4 +1,4 @@
 # DocGO
 > DocGo is a Document sharing platform
 
-> It's still in it's initial stage
+![alt text](https://raw.githubusercontent.com/mithu2649/DocGo/master/miscellaneous/screenshot.png)
