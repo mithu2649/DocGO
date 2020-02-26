@@ -1,7 +1,7 @@
 {
     "short_name": "DocGo",
-    "name": "DocGo: Open Document Sharing Platform",
-    "description": "Upload and Download documents for free",
+    "name": "DocGo",
+    "description": ":Open Document Sharing Platform. Upload and Download documents for free",
     "icons": [
       {
         "src": "resources/icons/app_icon192.png",

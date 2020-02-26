@@ -5,6 +5,10 @@ self.addEventListener('install', function(event) {
       caches.open('DocGO-v1').then(function(cache) {
         return cache.addAll([
           '/',
+          'feed',
+          'index',
+          'resources/icons/app_icon192.png',
+          'resources/icons/app_icon512.png',
           'resources/icons/document.png',
           'resources/icons/user.png',
           'resources/icons/document.svg',
@@ -13,7 +17,6 @@ self.addEventListener('install', function(event) {
           'resources/img/epub.png',
           'resources/img/txt.png',
           'resources/img/unknown.png',
-          'feed',
           'manifest.webmanifest',
           'resources/css/header.css',
           'resources/css/index.css',
