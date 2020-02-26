@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/css/header.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
-    <link href="resources/icons/document.svg" rel="icon"  type="image/x-icon" />
-    <link href="resources/icons/document.png" rel="icon"  type="image/x-icon" />
+    <link href="resources/icons/app_icon192.png" rel="icon"  type="image/x-icon" />
+    <link href="resources/icons/app_icon192.png" rel="icon"  type="image/x-icon" />
+    <link href="manifest.webmanifest" rel="manifest" />
     <?php if($currentPage  == 'index'){echo '<link rel="stylesheet" href="resources/css/index.css">';} ?>
     <?php if($currentPage == 'register' || $currentPage == 'login'){echo '<link rel="stylesheet" href="resources/css/login.css">';} ?>
     <?php if($currentPage == 'feed' || $currentPage == 'search'){echo '<link rel="stylesheet" href="resources/css/posts.css">';} ?>

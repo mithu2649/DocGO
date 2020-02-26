@@ -1,0 +1,22 @@
+{
+    "short_name": "DocGo",
+    "name": "DocGo: Open Document Sharing Platform",
+    "description": "Upload and Download documents for free",
+    "icons": [
+      {
+        "src": "resources/icons/app_icon192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "resources/icons/app_icon512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "./",
+    "background_color": "#2c3338",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#202020"
+  } 

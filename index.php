@@ -24,7 +24,7 @@
 <div class="jumboText">
 
     <form class="searchform" method="post" action="search.php">
-        <input type="text" name="q" id="search_field" autocomplete="off" placeholder="Search for documents" required><input type="submit" value="Search">
+        <input type="text" name="q" autocomplete="off" placeholder="Search for documents" required><input type="submit" value="Search">
     </form>
 
     <h1>Hello, <?php echo $username; ?></h1>
