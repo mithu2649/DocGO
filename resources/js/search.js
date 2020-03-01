@@ -1,26 +1,26 @@
 //To invoke events manually, logically..
-function simulate(element, eventName){
+function simulate(element, eventName) {
     var options = extend(defaultOptions, arguments[2] || {});
     var oEvent, eventType = null;
 
-    for (var name in eventMatchers){
+    for (var name in eventMatchers) {
         if (eventMatchers[name].test(eventName)) { eventType = name; break; }
     }
 
     if (!eventType)
         throw new SyntaxError('Only HTMLEvents and MouseEvents interfaces are supported');
-    if (document.createEvent){
+    if (document.createEvent) {
         oEvent = document.createEvent(eventType);
-        if (eventType == 'HTMLEvents'){
+        if (eventType == 'HTMLEvents') {
             oEvent.initEvent(eventName, options.bubbles, options.cancelable);
         }
-        else{
+        else {
             oEvent.initMouseEvent(eventName, options.bubbles, options.cancelable, document.defaultView,
-            options.button, options.pointerX, options.pointerY, options.pointerX, options.pointerY,
-            options.ctrlKey, options.altKey, options.shiftKey, options.metaKey, options.button, element);
+                options.button, options.pointerX, options.pointerY, options.pointerX, options.pointerY,
+                options.ctrlKey, options.altKey, options.shiftKey, options.metaKey, options.button, element);
         }
         element.dispatchEvent(oEvent);
-    }else{
+    } else {
         options.clientX = options.pointerX;
         options.clientY = options.pointerY;
         var evt = document.createEventObject();
@@ -30,9 +30,9 @@ function simulate(element, eventName){
     return element;
 }
 
-function extend(destination, source){
+function extend(destination, source) {
     for (var property in source)
-      destination[property] = source[property];
+        destination[property] = source[property];
     return destination;
 }
 
@@ -53,13 +53,13 @@ var defaultOptions = {
 }
 
 
-document.querySelector('#actionButton').addEventListener('click', function(){
+document.querySelector('#actionButton').addEventListener('click', function () {
     document.querySelector('#overlay-dark').style.display = 'block';
     let textbox = document.getElementById('search_field');
     textbox.focus();
     textbox.scrollIntoView();
 });
-document.querySelector('#closeSearch').addEventListener('click', function(){
+document.querySelector('#closeSearch').addEventListener('click', function () {
     document.querySelector('#overlay-dark').style.display = 'none';
 });
 

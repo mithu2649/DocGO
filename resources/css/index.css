@@ -64,9 +64,14 @@
     .jumboButton{
         width:90%;
     }
+    .jumboText{
+        padding:40px;
+    }
 }
 
 #uploadFormContainer{
+    height:2400px;
+    overflow-y: scroll;
     margin-left:-10px;
     width:100%;
     height:100vh;
@@ -84,6 +89,7 @@
     margin-right: auto;
     margin-top:60px;
     z-index:999;
+    height:800px;
     position: relative;
 }
 #uploadFormContainer form input, #uploadFormContainer form textarea{
@@ -102,7 +108,7 @@
     border-radius: 6px;
     outline: none;
 }
-#uploadFormContainer form input[type="submit"]{
+#uploadFormContainer form input[type="submit"], .submit-btn{
     height:40px;
     width:140px;
     border:none;
