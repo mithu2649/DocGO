@@ -94,19 +94,15 @@ nav #logo_text_accent{
     color:#369666;
 }
 
-#user_logo{
+#user_image_header{
+    background-size: cover !important;
     display: inline-block;
     height: 40px;
     width: 40px;
-    vertical-align: top;
-    line-height: 95px;
     position: absolute;
-    right:60px;
-}
-#user_logo img{
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+    right:20px;
+    top:10px;
+    border-radius:50%;
 }
 
 @media only screen and (max-width: 600px) {

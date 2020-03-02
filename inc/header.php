@@ -1,5 +1,9 @@
 <?php
 $currentPage = basename($_SERVER["SCRIPT_FILENAME"], '.php');
+if($currentPage  != 'login' && $currentPage != 'register') {
+    $user_id = Login::isLoggedIn();
+    $user_img_header = DB::query('SELECT username, user_img, email FROM users WHERE id = :user_id;', array('user_id' => $user_id))[0]['user_img'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,15 +17,20 @@ $currentPage = basename($_SERVER["SCRIPT_FILENAME"], '.php');
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
     <link href="resources/icons/document.svg" rel="icon" type="image/x-icon" />
     <link href="resources/icons/document.png" rel="icon" type="image/x-icon" />
-    <?php if ($currentPage  == 'index' || $currentPage == 'download_page') {
+    <?php
+    if ($currentPage  == 'index' || $currentPage == 'download_page') {
         echo '<link rel="stylesheet" href="resources/css/index.css">';
-    } ?>
-    <?php if ($currentPage == 'register' || $currentPage == 'login') {
+    }
+    if ($currentPage  == 'profile') {
+        echo '<link rel="stylesheet" href="resources/css/profile.css">';
+    }
+    if ($currentPage == 'register' || $currentPage == 'login') {
         echo '<link rel="stylesheet" href="resources/css/login.css">';
-    } ?>
-    <?php if ($currentPage == 'feed' || $currentPage == 'search' || $currentPage == 'download') {
+    }
+    if ($currentPage == 'feed' || $currentPage == 'search' || $currentPage == 'download') {
         echo '<link rel="stylesheet" href="resources/css/posts.css">';
-    } ?>
+    }
+    ?>
 </head>
 
 <body>
@@ -69,12 +78,7 @@ $currentPage = basename($_SERVER["SCRIPT_FILENAME"], '.php');
             </ul>
             <?php
             if ($currentPage != 'login' && $currentPage != 'register') {
-                echo '
-                        <div id="user_logo">
-                            <a href="profile">
-                                <img style="width:100%;" src="resources/icons/user.png"/>
-                            </a>
-                        </div>';
+                echo '<a href="profile"><div id="user_image_header" style="background:url(\''.$user_img_header.'\')"></div></a>';
             }
             ?>
         </nav>
