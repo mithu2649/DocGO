@@ -30,17 +30,20 @@ if (Login::isLoggedIn()) {
                 //Somebody please fix this.
                 //HINT: removing all the OR statements from the query fixes the issue
                 //but the search is less efficient that way.
+
+                //The query down might solve the problem.
+                
+                //SELECT DISTINCT 
+                //documents.id, documents.title, 
+                //documents.description, documents.posted_at, 
+                //documents.url, users.username
+                //FROM users, documents
+                //WHERE  documents.title LIKE "%mithu%"
+                //OR users.username LIKE "%mithu%"
+                //AND users.id = documents.uploaded_by
             }
         }
 		
-//SELECT DISTINCT 
-//documents.id, documents.title, 
-//documents.description, documents.posted_at, 
-//documents.url, users.username
-//FROM users, documents
-//WHERE  documents.title LIKE "%mithu%"
-//OR users.username LIKE "%mithu%"
-//AND users.id = documents.uploaded_by
 		
 		
 
