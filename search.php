@@ -32,6 +32,17 @@ if (Login::isLoggedIn()) {
                 //but the search is less efficient that way.
             }
         }
+		
+//SELECT DISTINCT 
+//documents.id, documents.title, 
+//documents.description, documents.posted_at, 
+//documents.url, users.username
+//FROM users, documents
+//WHERE  documents.title LIKE "%mithu%"
+//OR users.username LIKE "%mithu%"
+//AND users.id = documents.uploaded_by
+		
+		
 
         $finalQuery = $query . ' AND users.id = documents.uploaded_by GROUP BY documents.title';
         $posts = DB::query($finalQuery);
