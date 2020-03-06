@@ -1,6 +1,6 @@
 <?php
 $currentPage = basename($_SERVER["SCRIPT_FILENAME"], '.php');
-if($currentPage  != 'login' && $currentPage != 'register') {
+if ($currentPage  != 'login' && $currentPage != 'register') {
     $user_id = Login::isLoggedIn();
     $user_img_header = DB::query('SELECT username, user_img, email FROM users WHERE id = :user_id;', array('user_id' => $user_id))[0]['user_img'];
 }
@@ -15,7 +15,6 @@ if($currentPage  != 'login' && $currentPage != 'register') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/css/header.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
-    <link href="resources/icons/document.svg" rel="icon" type="image/x-icon" />
     <link href="resources/icons/document.png" rel="icon" type="image/x-icon" />
     <?php
     if ($currentPage  == 'index' || $currentPage == 'download_page') {
@@ -52,33 +51,41 @@ if($currentPage  != 'login' && $currentPage != 'register') {
                             <rect x="256" y="210" style="fill:#BABAC0;" width="120" height="30" />
                             <rect x="256" y="300" style="fill:#BABAC0;" width="120" height="30" />
                         </g>
-                    </svg></span>
-                <span id="logo_text">Doc<span id="logo_text_accent">Go</span></span></span></a>
+                    </svg></span></a>
+            <span id="logo_text">Doc<span id="logo_text_accent">Go</span></span></span></a>
             <ul>
-                <li><a class="<?php if ($currentPage == 'index') {
+                <li>
+                    <a class="<?php if ($currentPage == 'index') {
                                     echo 'active';
                                 } else {
                                     echo 'unactive';
-                                } ?>" href="index">Home</a></li>
-                <li><a class="<?php if ($currentPage == 'feed') {
+                                } ?>" href="index">Home</a>
+                </li>
+                <li>
+                    <a class="<?php if ($currentPage == 'feed') {
                                     echo 'active';
                                 } else {
                                     echo 'unactive';
-                                } ?>" href="feed">My feeds</a></li>
-                <li><a class="<?php if ($currentPage == 'profile') {
+                                } ?>" href="feed">My feeds</a>
+                </li>
+                <li>
+                    <a class="<?php if ($currentPage == 'profile') {
                                     echo 'active';
                                 } else {
                                     echo 'unactive';
-                                } ?>" href="profile">Profile</a></li>
-                <li><a class="<?php if ($currentPage == 'about') {
+                                } ?>" href="profile">Profile</a>
+                </li>
+                <li>
+                    <a class="<?php if ($currentPage == 'about') {
                                     echo 'active';
                                 } else {
                                     echo 'unactive';
-                                } ?>" href="#">About</a></li>
+                                } ?>" href="#">About</a>
+                </li>
             </ul>
             <?php
             if ($currentPage != 'login' && $currentPage != 'register') {
-                echo '<a href="profile"><div id="user_image_header" style="background:url(\''.$user_img_header.'\')"></div></a>';
+                echo '<a href="profile"><div id="user_image_header" style="background:url(\'' . $user_img_header . '\')"></div></a>';
             }
             ?>
         </nav>

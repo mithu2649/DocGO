@@ -4,8 +4,10 @@
                 $user_id = Login::isLoggedIn();
     
                 $temp = explode(".", $file["name"]);
-                $newfilename = round(microtime(true)) . '.' . end($temp);
-    
+
+                //generates random string according to the time
+                $newfilename = round(microtime(true)) . '.' . end($temp); 
+                
                 $target_dir = "uploads/";
                 $target_file = $target_dir . $newfilename;
 

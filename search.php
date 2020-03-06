@@ -32,7 +32,7 @@ if (Login::isLoggedIn()) {
                 //but the search is less efficient that way.
 
                 //The query down might solve the problem.
-                
+
                 //SELECT DISTINCT 
                 //documents.id, documents.title, 
                 //documents.description, documents.posted_at, 
@@ -43,9 +43,6 @@ if (Login::isLoggedIn()) {
                 //AND users.id = documents.uploaded_by
             }
         }
-		
-		
-		
 
         $finalQuery = $query . ' AND users.id = documents.uploaded_by GROUP BY documents.title';
         $posts = DB::query($finalQuery);
@@ -82,7 +79,7 @@ if (Login::isLoggedIn()) {
         }
     }
 } else {
-    header('location:login');
+    header('location: login');
 }
 ?>
 
