@@ -19,22 +19,30 @@
     margin-right: auto;
     background-size:cover !important;
     background-repeat: no-repeat !important;
+    cursor: pointer;
+    transition: .3s ease;
 }
 .img-container::after{
     content:'+';
     text-align: center;
-    line-height: 40px;
+    line-height: 35px;
     font-size: 2rem;
     color:#fff;
-    height:40px;
-    width:40px;
-    background-color: #369666;
+    height:35px;
+    width: 35px;
+    background-color: #1b1d1d; 
+    border:2px solid #369666;
     border-radius: 50%;
     position:absolute;
-    bottom:2px;
-    right:2px;
+    bottom:0px;
+    right:0px;
+    transition: .2s ease;
 }
-
+.img-container:hover:after{
+    color: #369666;
+    background-color:#fff;
+    cursor: pointer;
+}
 .email{
     color:#369666;
     text-decoration: none;
@@ -55,20 +63,12 @@
         margin-bottom:15px
     }
     .img-container::after{
-        content:'+';
-        text-align: center;
-        line-height: 36px;
+        line-height: 38px;
         font-size: 1.7rem;
-        color:#fff;
         height:35px;
         width:35px;
-        background-color: #369666;
-        border-radius: 50%;
-        position:absolute;
-        bottom:0;
-        right:0;
-        cursor: pointer;
     }
+
 }
 
 .logout-btn{

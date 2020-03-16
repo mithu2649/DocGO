@@ -48,7 +48,7 @@ if(isset($_FILES['user_image'])){
 
 ?>
 <div class="profile-container">
-    <div class="img-container" id="user_img" style="background:url('<?php echo $user_img; ?>')"></div>
+    <div class="img-container-parent"><div class="img-container" id="user_img" style="background:url('<?php echo $user_img; ?>')"></div></div>
     <h1><?php echo $username; ?></h1>
     <a class="email" href="mailto:<?php echo $user_email; ?>"><?php echo $user_email; ?></a>
     <form id="upload_user_image" name="uploadUserImage" action="profile.php" style="display:none" enctype="multipart/form-data" method="post">
