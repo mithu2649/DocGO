@@ -138,6 +138,7 @@ nav #logo_text_accent{
       padding:10px;
       z-index:9;
       padding-top:120px;
+      min-height: 100vh;
   }
 
   

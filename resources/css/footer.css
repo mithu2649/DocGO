@@ -1,0 +1,56 @@
+#footer{
+    background-color: #202020;
+    color:white !important;
+    height:90vh;
+    width:100%;
+    margin-top:100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:30px;
+    border-bottom: 9px solid #e04545;
+   
+}
+#c-notice{
+    font-size: 18px;
+    text-align: center;
+}
+#social{
+    margin-top:25px;
+    width:300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding:10px;
+}
+.social-icon{
+    display: inline-block;
+    padding: 10px;
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    line-height: 18px;   
+    text-align: center;
+    font-size: 20px;
+    padding-left:10px;
+}
+.social-icon a{
+    color:#fff !important;
+}
+.icon-twitter{
+    background-color: #42b6e7 !important;
+}
+.icon-facebook{
+    background-color: #4267b2;
+}
+.icon-google{
+    background-color: black;
+}
+
+@media only screen and (max-width: 600px) {
+    #c-notice{
+        font-size: 12px;
+    }
+}
