@@ -18,7 +18,7 @@
                     echo '<p><b>Title too short:</b> Please provide with a descriptive title.</p>';
                     $uploadOk = 0;
                 }
-                if(strlen($doc_description) < 40){
+                if(strlen($doc_description) < 30){
                     echo '<p><b>Description too short:</b> Please add more details about the document.</p>';
                     $uploadOk = 0;
                 }
