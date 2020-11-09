@@ -6,6 +6,6 @@
 
 ### Getting Started
 
-🔹Install XAMPP or and an appropriate Server for your machine.
+🔹Install XAMPP or any appropriate Server for your machine.
 🔹Clone the repo
 <code>git clone </code>
