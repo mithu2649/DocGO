@@ -8,4 +8,5 @@
 
 🔹Install XAMPP or any appropriate Server for your machine.
 🔹Clone the repo
-<code>git clone </code>
+<pre>git clone </pre>
+🔹Import the <code>database</code> to your MySql.
