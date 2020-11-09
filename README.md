@@ -1,5 +1,5 @@
 # DocGO
-![](miscellaneous/screenshot.png)
+
 ![](miscellaneous/screenshot2.png)
 
 > DocGo is a Document sharing platform and is been worked on as a college project.
@@ -21,3 +21,5 @@
 🔹All Done!
 
 Thankyou for contributing.
+
+![](miscellaneous/screenshot.png)
