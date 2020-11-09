@@ -12,9 +12,9 @@
 
 <pre>git clone https://github.com/mithu2649/DocGO.git</pre>
 
-🔹Import the <code>doc_srist.sql</code> file to your MySQL.
+🔹Start MySQL and Apache Server
 
-🔹Start Apache and MySQL
+🔹Import the <code>doc_srist.sql</code> file to your MySQL and optionally restart the server.
 
 🔹Open up your localhost
 
