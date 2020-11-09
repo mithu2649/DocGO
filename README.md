@@ -10,7 +10,7 @@
 
 🔹Clone the repo
 
-<pre>git clone </pre>
+<pre>git clone https://github.com/mithu2649/DocGO.git</pre>
 
 🔹Import the <code>doc_srist.sql</code> file to your MySQL.
 
