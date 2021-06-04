@@ -2,7 +2,7 @@
 
 ![](miscellaneous/screenshot2.png)
 
-> DocGo is a Document sharing platform and is been worked on as a college project.
+> DocGo is a Document sharing platform where users can upload and share documents in different file formats or download them.
 
 ### Getting Started
 
